@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 10px; /* Increased row gap */
+  row-gap: 30px; /* Separate property for row gap to provide more space */
+}
+
+.timeline-item {
+  flex: 1 0 100px; /* Allow items to grow, but set a minimum width */
+  max-width: 150px; /* Prevent items from becoming too wide */
+  position: relative;
+}
+
+.timeline-segment {
+  height: 20px;
+  position: relative;
+}
+
+.timeline-segment::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #333;
+}
+
+.timeline-item:not(:last-child) .timeline-segment::before {
+  right: -10px; /* Extend to the gap between items */
+}
+
+.year-marker {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 2px;
+  height: 10px;
+  background-color: #333;
+  transform: translateY(-50%);
+  z-index: 1; /* Ensure it's above the timeline */
+}
+
+.year-label {
+  position: absolute;
+  top: -25px; /* Moved up slightly */
+  left: 0;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  border: 1px solid #999;
+}
